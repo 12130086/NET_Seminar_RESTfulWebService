@@ -1,0 +1,23 @@
+GET http://localhost:55221/api/Products
+---
+GET http://localhost:55221/api/Products/4
+---
+POST api/Account/Register
+Content-Type: application/json
+{
+  "Email": "sample string 1",
+  "Password": "sample string 2",
+  "ConfirmPassword": "sample string 3"
+}
+---
+POST token
+Content-Type: application/x-www-form-urlencoded
+grant_type=password&username=admin@mail.com&password=adminPass@123
+---
+GET api/Account/UserInfo
+Authorization: bearer nyRg0PYJa8S-...
+{
+  "Email": "sample string 1",
+  "HasRegistered": true,
+  "LoginProvider": "sample string 3"
+}
